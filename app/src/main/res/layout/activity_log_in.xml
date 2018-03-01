@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorwhite"
+    android:padding="30dp"
+    tools:context="com.example.omarla.food2u_repo.LogIn">
+
+
+    <LinearLayout
+        android:id="@+id/fb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        >
+        <Button
+            android:id="@+id/fbb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bluestyle"
+            android:drawableLeft="@mipmap/fbicon"
+            android:text="facebook"
+            android:paddingEnd="20dp"
+            android:paddingStart="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/colorwhite" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        >
+
+        <Button
+            android:id="@+id/google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/redstyle"
+            android:drawableLeft="@mipmap/gicon"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingEnd="34dp"
+            android:text="Google"
+            android:textAllCaps="false"
+            android:textColor="@color/colorwhite" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/or"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/fb">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/orText"
+            android:background="@color/cardview_shadow_start_color" />
+
+        <TextView
+            android:id="@+id/orText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="OR"
+            android:textColor="@android:color/black" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/orText"
+            android:background="@color/cardview_shadow_start_color" />
+    </RelativeLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/cardview_shadow_start_color"
+        android:layout_below="@+id/or">
+
+        <AutoCompleteTextView
+            android:id="@+id/mobile_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:hint="Mobile No."
+            android:maxLines="1"
+            android:ems="10"
+            android:textSize="18sp"
+            android:inputType="phone"
+            android:textColor="@color/colorblack"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/cardview_shadow_start_color"
+        android:layout_below="@+id/layout"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/password_id"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:hint="Password"
+            android:imeActionId="6"
+            android:imeOptions="actionUnspecified"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/colorblack" />
+    </android.support.design.widget.TextInputLayout>
+    <TextView
+        android:id="@+id/forgetpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="7dp"
+        android:layout_below="@id/layout1"
+        android:text="Forget Password ?"
+        android:textColor="@color/colorblack"
+        />
+
+    <Button
+        android:id="@+id/login_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forgetpassword"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/greenstyle"
+        android:text="Log In"
+        android:textColor="@color/colorwhite"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/login_id"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button"
+            android:text="DO NOT HAVE AN ACCOUNT?"
+            android:textColor="@color/cardview_shadow_start_color"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/signup_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorwhite"
+            android:text="Sign Up"
+            android:textColor="@color/colororange"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

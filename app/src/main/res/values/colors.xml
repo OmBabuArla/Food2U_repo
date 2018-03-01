@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorpink">#FF4081</color>
+    <color name="colorbrown">#835B53</color>
+    <color name="colorblack">#0A0A0A</color>
+    <color name="colorsilver">#ECDDDD</color>
+    <color name="colorsilverdark">#C0C0C0</color>
+    <color name="colordarkblue">#007080</color>
+    <color name="colorwhite">#ffffff</color>
+    <color name="colororange">#FF7F50</color>
+    <color name="cardview_shadow_start_color">#37000000</color>
+</resources>
