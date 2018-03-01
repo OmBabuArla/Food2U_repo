@@ -13,8 +13,7 @@
         android:id="@+id/fb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="start"
-        >
+        android:gravity="start">
         <Button
             android:id="@+id/fbb"
             android:layout_width="wrap_content"
