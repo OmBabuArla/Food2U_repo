@@ -1,5 +1,6 @@
 package com.example.omarla.food2u_repo;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,18 +9,18 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputFilter;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +30,7 @@ public class LogIn extends AppCompatActivity {
     Button btnlogin, btnsignup;
     EditText edt_mobile, edt_password;
     String mobile, password;
-
+    ProgressDialog progress;
     AlertDialog.Builder builder;
     Boolean net_check = false;
 
@@ -41,7 +42,12 @@ public class LogIn extends AppCompatActivity {
         btnsignup = (Button)findViewById(R.id.signup_id);
         edt_mobile = (EditText) findViewById(R.id.mobile_id);
         edt_password = (EditText) findViewById(R.id.password_id);
+        progress = new ProgressDialog(this);
+        progress.setTitle("Please Wait");
+        progress.setMessage("Loading.....");
+        progress.setIndeterminate(true);
 
+        edt_mobile.setFilters(new InputFilter[] {new InputFilter.LengthFilter(10)});//limiting the length of the mobile no upto 10 digit
 
         builder = new AlertDialog.Builder(LogIn.this);
         net_check=netCheck();
@@ -61,49 +67,56 @@ public class LogIn extends AppCompatActivity {
             public void onClick(View v) {
                 mobile = edt_mobile.getText().toString();
                 password = edt_password.getText().toString();
+                Toast.makeText(LogIn.this, "mobile"+mobile, Toast.LENGTH_SHORT).show();
+                Toast.makeText(LogIn.this, "password"+password, Toast.LENGTH_SHORT).show();
 
 
                 if (mobile.length() != 10) {
                     builder.setTitle("Mobile_number");
-                    builder.setMessage("Please enter the correct mobile number");
+                    builder.setMessage("Invalid mobile number");
                     displayAlert("Input_error0");
                 } else {
-                    if (password.length() == 0) {
+                    if (password.length()<=0) {
                         builder.setTitle("Password");
-                        builder.setMessage("password no entererd!");
+                        builder.setMessage("Please Enter Password!");
                         displayAlert("Input_error1");
                     } else {
-
-                        StringRequest stringRequest= new StringRequest(Request.Method.POST, URLs.con_url + URLs.login,
-                                new Response.Listener<String>() {
-                                    @Override
+                        progress.show();
+                        Log.d("url",URLs.LOGIN);
+                        StringRequest stringRequest= new StringRequest(Request.Method.POST, URLs.LOGIN,new Response.Listener<String>() {
+                            @Override
                                     public void onResponse(String response) {
-
-                                        try {
-                                            JSONObject jsonObj = new JSONObject(response);
-
-                                            String error = jsonObj.getString("error");
-                                            String message = jsonObj.getString("message");
-                                            if (error.equals(0)) {
-                                                builder.setMessage(message);
-                                                builder.setTitle("Success!");
-                                                displayAlert(error);
-                                            } else {
-                                                builder.setMessage(message);
-                                                builder.setTitle("Alert!");
-                                                displayAlert(error);
-                                            }
-
-
-                                        } catch (JSONException e) {
-                                            e.printStackTrace();
-                                        }
+                                        Log.d("onresopnse",response);
+                                progress.dismiss();
+                                progress.dismiss();
+                                startActivity(new Intent(LogIn.this, SignUp.class));
+//                                        try {
+//                                            JSONObject jsonObj = new JSONObject(response);
+//
+//                                            String error = jsonObj.getString("error");
+//                                            String message = jsonObj.getString("message");
+//                                            if (error.equals(0)) {
+//                                                builder.setMessage(message);
+//                                                builder.setTitle("Success!");
+//                                                displayAlert(error);
+//                                            } else {
+//                                                builder.setMessage(message);
+//                                                builder.setTitle("Alert!");
+//                                                displayAlert(error);
+//                                            }
+//                                                progress.dismiss();
+//
+//
+//                                        } catch (JSONException e) {
+//                                            e.printStackTrace();
+//                                        }
 
                                     }
                                 }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-
+                                Toast.makeText(LogIn.this, "Error Message"+error.getMessage(), Toast.LENGTH_SHORT).show();
+                                progress.dismiss();
 
                             }
                         }) {
@@ -112,7 +125,6 @@ public class LogIn extends AppCompatActivity {
                                 Map<String, String> params = new HashMap<String, String>();
                                 params.put("mobile_no", mobile);
                                 params.put("password", password);
-
                                 return params;
                             }
 
@@ -131,7 +143,7 @@ public class LogIn extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                if (code.equals("input_error"))
+                if (code.equals("input_error0"))
                 {
                     edt_mobile.setText("");
                     edt_password.setText("");

@@ -126,6 +126,7 @@
                     android:layout_height="wrap_content"
                     android:textColorHint="@color/cardview_shadow_start_color"
                     android:layout_below="@+id/username"
+                    android:inputType="textWebEmailAddress"
                     android:hint="Email ID"
                     android:textColor="@color/colorblack"
                     android:textSize="13sp"
@@ -138,27 +139,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/cardview_shadow_start_color"
-                android:layout_below="@+id/layout1"
+                android:layout_below="@+id/or"
                 android:layout_marginTop="13dp">
                 <EditText
                     android:id="@+id/password"
+                    android:inputType="textWebPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
                     android:hint="Password"
-                    android:imeActionId="6"
-                    android:layout_below="@+id/email"
-                    android:textColorHint="@color/cardview_shadow_start_color"
-                    android:textSize="13sp"
-
                     android:textColor="@color/colorblack"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:singleLine="true"
-
-
-                    />
+                    android:textSize="13sp" />
             </android.support.design.widget.TextInputLayout>
+
+            //changes made by jatinder for cnfirm password
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/layout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:layout_below="@+id/or"
+                android:layout_marginTop="13dp">
+                <EditText
+                    android:id="@+id/conf_password"
+                    android:inputType="textWebPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:hint="Confirm password"
+                    android:textColor="@color/colorblack"
+                    android:textSize="13sp" />
+            </android.support.design.widget.TextInputLayout>
+
 
 
 
@@ -172,6 +186,7 @@
                 >
 
                 <EditText
+                    android:id="@+id/ed_mobile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignEnd="@+id/textView3"
@@ -186,7 +201,7 @@
 
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btn_signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/scroll"
@@ -221,6 +236,9 @@
                     android:layout_marginLeft="10dp"
                     android:text="Log In"
                     android:textColor="@color/colororange"
+                    android:clickable="true"
+                    android:contextClickable="true"
+                    android:onClick="Perfor_Action"
                     android:textSize="12sp" />
             </LinearLayout>
 
