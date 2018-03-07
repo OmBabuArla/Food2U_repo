@@ -32,7 +32,8 @@
         <activity
             android:name=".VendorDashboard"
             android:label="@string/title_activity_vendor_dashboard"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ForgetPassword"></activity>
     </application>
 
 </manifest>

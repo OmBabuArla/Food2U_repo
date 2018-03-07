@@ -42,6 +42,7 @@ public class LogIn extends AppCompatActivity {
         btnsignup = (Button)findViewById(R.id.signup_id);
         edt_mobile = (EditText) findViewById(R.id.mobile_id);
         edt_password = (EditText) findViewById(R.id.password_id);
+        edt_password.setFilters(new  InputFilter[]{ new InputFilter.LengthFilter(12)});
         progress = new ProgressDialog(this);
         progress.setTitle("Please Wait");
         progress.setMessage("Loading.....");
@@ -89,6 +90,7 @@ public class LogIn extends AppCompatActivity {
                                         Log.d("onresopnse",response);
                                 progress.dismiss();
                                 progress.dismiss();
+                                Toast.makeText(LogIn.this, "login successful", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(LogIn.this, SignUp.class));
 //                                        try {
 //                                            JSONObject jsonObj = new JSONObject(response);
