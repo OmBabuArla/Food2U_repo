@@ -21,18 +21,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUp" />
-        <activity
-            android:name=".AdminDashborad"
-            android:label="@string/title_activity_admin_dashborad"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".CustomerDashboard"
-            android:label="@string/title_activity_customer_dashboard"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".VendorDashboard"
-            android:label="@string/title_activity_vendor_dashboard"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ForgetPassword"></activity>
     </application>
 
